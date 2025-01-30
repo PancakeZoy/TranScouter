@@ -1,2 +1,1 @@
-# TranScouter
-Transferable LLM-enhanced model for predicting genetic perturbation effect across datasets
+# TranScouter: a universal transcriptional response predictor for unseen genetic perturbtions with LLM embeddings
