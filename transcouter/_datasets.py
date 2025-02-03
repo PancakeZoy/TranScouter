@@ -59,11 +59,12 @@ class BalancedDataset(Dataset):
             ctrl_adata = sub_adata[sub_adata.obs[key_pert] == ctrl_value]
             pert_adata = sub_adata[sub_adata.obs[key_pert] != ctrl_value]
 
+            if len(pert_adata) == 0 or len(ctrl_adata) == 0:
+                continue
+
             n_pert_cells = len(pert_adata)
             n_ctrl_cells = len(ctrl_adata)
-            ctrl_idx = np.random.choice(
-                np.arange(n_ctrl_cells), size=n_pert_cells, replace=True
-            )
+            ctrl_idx = np.random.choice(np.arange(n_ctrl_cells), size=n_pert_cells, replace=True)  # fmt: skip
             sampled_ctrl_adata = ctrl_adata[ctrl_idx]
 
             ctrl_expr = to_np_array(sampled_ctrl_adata.X)
