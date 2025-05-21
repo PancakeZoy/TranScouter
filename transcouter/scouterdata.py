@@ -197,22 +197,23 @@ class ScouterData:
         seed: int, optional
             Random seed for reproducibility. Default is 24.
         """
-        # if any(self.ctrl_value in cond for cond in val_conds):
-        #     raise ValueError("Control conditions should not be included in val_conds")
-        # if any(self.ctrl_value in cond for cond in test_conds):
-        #     raise ValueError("Control conditions should not be included in test_conds")
-        # if set(val_conds) & set(test_conds):
-        #     raise ValueError(
-        #         "Found conditions that appear in both validation and test sets"
-        #     )
 
         self.train_conds = np.array(train_conds)
         self.val_conds = np.array(val_conds)
         self.test_conds = np.array(test_conds)
 
-        self.val_adata = self.adata[(self.adata.obs[self.key_cov_pert].isin(val_conds))]
-        self.test_adata = self.adata[(self.adata.obs[self.key_cov_pert].isin(test_conds))]  # fmt: skip
-        self.train_adata = self.adata[(self.adata.obs[self.key_cov_pert].isin(self.train_conds))]  # fmt: skip
+        self.val_adata = self.adata[
+            (self.adata.obs[self.key_cov_pert].isin(val_conds))
+            | (self.adata.obs[self.key_pert] == self.ctrl_value)
+        ]
+        self.test_adata = self.adata[
+            (self.adata.obs[self.key_cov_pert].isin(test_conds))
+            | (self.adata.obs[self.key_pert] == self.ctrl_value)
+        ]
+        self.train_adata = self.adata[
+            (self.adata.obs[self.key_cov_pert].isin(self.train_conds))
+            | (self.adata.obs[self.key_pert] == self.ctrl_value)
+        ]
 
     def gene_ranks(
         self,
