@@ -4,6 +4,10 @@ TranScouter is a lightweight encoder-decoder model for predicting transcriptiona
 
 The model is designed for cross-condition perturbation-response prediction, including both settings where the target perturbation has been observed in other training conditions and settings where the target perturbation is absent from all training perturbation-condition pairs.
 
+<p align="center">
+  <img src=".github/assets/fig1.jpg" width="850" alt="TranScouter overview">
+</p>
+
 Preprint: [A structured study of cross-condition prediction of transcriptional responses to gene perturbations](https://www.biorxiv.org/content/10.64898/2026.07.30.741892v1.abstract)
 
 Code for reproducing manuscript results and figures: [TranScouter_misc](https://github.com/PancakeZoy/TranScouter_misc)
