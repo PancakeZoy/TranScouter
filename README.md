@@ -131,4 +131,15 @@ If you use TranScouter, please cite:
   doi = {10.64898/2026.07.30.741892},
   journal = {bioRxiv}
 }
+
+@article{zhu2026scouter,
+  title={Scouter predicts transcriptional responses to genetic perturbations with large language model embeddings},
+  author={Zhu, Ouyang and Li, Jun},
+  journal={Nature Computational Science},
+  volume={6},
+  number={1},
+  pages={21--28},
+  year={2026},
+  publisher={Nature Publishing Group US New York}
+}
 ```
